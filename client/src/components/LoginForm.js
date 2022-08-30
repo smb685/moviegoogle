@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
+// this imports the { loginUser } from '../utils/API'
 import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 
