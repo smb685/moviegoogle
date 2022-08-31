@@ -15,16 +15,18 @@ class AuthService {
     return !!token && !this.isTokenExpired(token); // handwaiving here
   }
 
-  // check if token is expired
-  isTokenExpired(token) {
-    try {
-      const decoded = decode(token);
-      if (decoded.exp < Date.now() / 1000) {
-        return true;
-      } else return false;
-    } catch (err) {
-      return false;
-    }
+     //check if the token has expired
+     isTokenExpired(token) {
+      try {
+          const decoded = decode(token);
+          if(decoded.exp < Date.now()/1000) {
+              return true;
+          } else {
+              return false;
+          }
+      } catch(err) {
+          return false;
+      }
   }
 
   getToken() {
@@ -38,6 +40,7 @@ class AuthService {
     window.location.assign('/');
   }
 
+  //clears the token from the localStorage. then forces a logout 
   logout() {
     // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
